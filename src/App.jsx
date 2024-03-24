@@ -33,6 +33,12 @@ function App() {
           </button>
         ))}
       </div>
+
+      {message.length > 0 && (
+        <div>
+          <p style={{ color: isRight ? 'green' : 'red' }}>{message}</p>
+        </div>
+      )}
     </>
   );
 }
