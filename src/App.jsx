@@ -12,11 +12,18 @@ function App() {
   // Checks the user input if answer is correct
   const checkAnswer = (guess) => {
     if (guess === answer) {
-      setMessage('Right Answer!!!');
-      const randomIndex = Math.floor(Math.random() * colors.length);
-      const randomColor = colors[randomIndex];
+      setMessage('Right Answer!');
       setIsRight(true);
-      setAnswer(randomColor);
+
+      // Clear the message and reset the game state after 2 seconds
+      setTimeout(() => {
+        setMessage('');
+        setIsRight(false);
+
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        const randomColor = colors[randomIndex];
+        setAnswer(randomColor);
+      }, 1000);
     } else {
       setMessage('Wrong Answer');
       setIsRight(false);
