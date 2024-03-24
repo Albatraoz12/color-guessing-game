@@ -41,9 +41,10 @@ function App() {
         className='game-bord'
       ></div>
 
-      <div>
+      <div className='btn-container'>
         {colors.map((color, i) => (
           <button
+            className='btn'
             type='button'
             key={i}
             value={color}

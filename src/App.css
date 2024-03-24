@@ -39,11 +39,56 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 1rem;
+  background-color: aqua;
+  border-radius: 5px;
+  border: none;
+  color: black;
+  font-weight: 800;
+  z-index: 1;
+  position: relative;
+  outline: none;
+  transition: color 300ms ease-in-out;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  border-radius: 5px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background-color: #eee;
+
+  transition: transform 300ms ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.btn:hover::before,
+.btn:focus::before {
+  transform: scaleX(1);
+}
+
 @media (min-width: 1000px) {
   h1 {
     font-size: 4em;
   }
   .game-bord {
     width: 50%;
+  }
+
+  p {
+    font-size: 4rem;
   }
 }
