@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import './App.css';
 
 function App() {
   const [answer, setAnswer] = useState(''); //Sets answer
   const [isRight, setIsRight] = useState(false); //Display if user is right or wrong
   const [message, setMessage] = useState(''); //Display message if user has it right or wrong
-  const colors = ['#9C334E', '#5607EE', '#C7DF67']; //Random colors to guess
+
+  // Memoize the colors array
+  const colors = useMemo(() => ['#9C334E', '#5607EE', '#C7DF67'], []);
 
   // Checks the user input if answer is correct
   const checkAnswer = (guess) => {
@@ -22,11 +24,11 @@ function App() {
   };
 
   useEffect(() => {
-    // Generate a random color as answer
+    // Generate a random color at render
     const randomIndex = Math.floor(Math.random() * colors.length);
     const randomColor = colors[randomIndex];
     setAnswer(randomColor);
-  }, []);
+  }, [colors]);
 
   return (
     <>
