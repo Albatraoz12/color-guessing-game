@@ -25,6 +25,14 @@ function App() {
           width: '35rem',
         }}
       ></div>
+
+      <div>
+        {colors.map((color, i) => (
+          <button type='button' key={i} value={color}>
+            {color}
+          </button>
+        ))}
+      </div>
     </>
   );
 }
