@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -7,11 +7,24 @@ function App() {
   const [message, setMessage] = useState(''); //Display message if user has it right or wrong
   const colors = ['#9C334E', '#5607EE', '#C7DF67']; //Random colors to guess
 
+  useEffect(() => {
+    // Generate a random color as answer
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    const randomColor = colors[randomIndex];
+    setAnswer(randomColor);
+  }, []);
+
   return (
     <>
-      <div>
-        <h1>Hello World</h1>
-      </div>
+      <h1>Color Guessing game!! :D</h1>
+
+      <div
+        style={{
+          backgroundColor: answer,
+          height: '20rem',
+          width: '35rem',
+        }}
+      ></div>
     </>
   );
 }
