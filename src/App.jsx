@@ -7,6 +7,20 @@ function App() {
   const [message, setMessage] = useState(''); //Display message if user has it right or wrong
   const colors = ['#9C334E', '#5607EE', '#C7DF67']; //Random colors to guess
 
+  // Checks the user input if answer is correct
+  const checkAnswer = (guess) => {
+    if (guess === answer) {
+      setMessage('Right Answer!!!');
+      const randomIndex = Math.floor(Math.random() * colors.length);
+      const randomColor = colors[randomIndex];
+      setIsRight(true);
+      setAnswer(randomColor);
+    } else {
+      setMessage('Wrong Answer');
+      setIsRight(false);
+    }
+  };
+
   useEffect(() => {
     // Generate a random color as answer
     const randomIndex = Math.floor(Math.random() * colors.length);
@@ -28,7 +42,12 @@ function App() {
 
       <div>
         {colors.map((color, i) => (
-          <button type='button' key={i} value={color}>
+          <button
+            type='button'
+            key={i}
+            value={color}
+            onClick={() => checkAnswer(color)}
+          >
             {color}
           </button>
         ))}
