@@ -30,14 +30,13 @@ function App() {
 
   return (
     <>
-      <h1>Color Guessing game!! :D</h1>
+      <h1>Color Guessing Game</h1>
 
       <div
         style={{
           backgroundColor: answer,
-          height: '20rem',
-          width: '35rem',
         }}
+        className='game-bord'
       ></div>
 
       <div>

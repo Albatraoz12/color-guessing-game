@@ -15,3 +15,33 @@
   width: 90%;
   padding-top: 1rem;
 }
+
+.game-bord {
+  height: 20rem;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+h1 {
+  font-size: 2.2em;
+  text-decoration: underline;
+  text-decoration-color: rgb(209, 190, 190);
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(156, 51, 78, 1) 0%,
+    rgba(86, 7, 238, 1) 50%,
+    rgba(199, 223, 103, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (min-width: 1000px) {
+  h1 {
+    font-size: 4em;
+  }
+  .game-bord {
+    width: 50%;
+  }
+}
